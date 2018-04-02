@@ -60,7 +60,6 @@ class App extends Component {
     this.setState({box});
   }
 
-
   onButtonSubmit = () =>{
     this.setState({
       imageUrl:this.state.input
@@ -70,16 +69,20 @@ class App extends Component {
     .catch(err => console.log(err));
 }
 
+onRouteChange = (route) => {
+  this.setState({route: route})
+}
+
   render() {
     return (
       <div>
         <Particles className="particles"
               params={particlesOptions}
             />
-       <Navigation />
+       <Navigation onRouteChange = {this.onRouteChange} />
        {
         this.state.route === 'signin'?
-        <SigninComponent/>
+        <SigninComponent onRouteChange = {this.onRouteChange}/>
         :
         <div>
         <Logo />
