@@ -16,8 +16,6 @@ const app = new Clarifai.App({
   apiKey: 'ff28ccedacd44bdb82894a87ad74ad98'
 });
 
-<script type="text/javascript" src="https://sdk.clarifai.com/js/clarifai-latest.js"></script>
-
 const particlesOptions = {
   particles: {
     number: {
@@ -38,9 +36,27 @@ class App extends Component {
       imageUrl: '',
       box: {},
       route: 'signin',
-      issignedIn: false
+      issignedIn: false,
+      user: {
+          id: '',
+          email: '',
+          name: '',
+          entries: 0,
+          joined: new Date()
+      }
     }
   }
+
+  loadUser = (data) => {
+    this.setState({user: {
+      id: data.id,
+      name: data.name,
+      email: data.email,
+      entries: data.entries,
+      joined: new Date()
+    }})
+  }
+
   onInputChange = (event) => {
     this.setState({ input: event.target.value })
   }
@@ -100,7 +116,7 @@ class App extends Component {
           : (
             route === 'signin'
               ? <SigninComponent onRouteChange={this.onRouteChange} />
-              : <RegisterComponent onRouteChange={this.onRouteChange} />
+              : <RegisterComponent loadUser={this.loadUser} onRouteChange={this.onRouteChange} />
           )
         }
       </div>

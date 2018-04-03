@@ -20,10 +20,20 @@ class SigninComponent extends React.Component {
   }
 
   onSubmitSignIn = () => {
-    console.log("this is awesome", this.state)
-    this.props.onRouteChange('home')
+    fetch('http://localhost:3000/sigin', {
+      method: 'post',
+      headers: {'content-type':'application/json'},
+      body: JSON.stringify({
+        email: this.state.signInEmail,
+        password: this.state.signInPassword
+      })
+    }).then(response => response.json())
+    .then(data => {
+      if (data === 'success...'){
+        this.props.onRouteChange('home')
+      }
+    })
   }
-
 
   render(){
     const { onRouteChange } = this.props;
@@ -46,10 +56,10 @@ class SigninComponent extends React.Component {
       </fieldset>
       <div className="">
         <input
-        onClick = {()=>onRouteChange('home')}
         className="b center ph3 pv2 input-reset ba b--black bg-transparent grow pointer f6 dib"
         type="submit"
         value="Sign in"
+        onClick = {this.onSubmitSignIn}
         />
       </div>
       <div className="lh-copy mt3">
