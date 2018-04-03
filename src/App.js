@@ -38,7 +38,7 @@ class App extends Component {
       imageUrl: '',
       box: {},
       route: 'signin',
-      issignedIn: true
+      issignedIn: false
     }
   }
   onInputChange = (event) => {
@@ -89,16 +89,16 @@ class App extends Component {
         <Particles className="particles"
           params={particlesOptions}
         />
-        <Navigation onRouteChange={this.onRouteChange} issignedIn={this.state.issignedIn} />
+        <Navigation onRouteChange={this.onRouteChange} issignedIn={issignedIn} />
         {route === 'home'
           ? <div>
             <Logo />
             <Rank />
             <ImageLinkForm onInputChange={this.onInputChange} onButtonSubmit={this.onButtonSubmit} />
-            <FaceRecogonition imageUrl={this.state.imageUrl} box={this.state.box} />
+            <FaceRecogonition imageUrl={imageUrl} box={box} />
           </div>
           : (
-            this.state.route === 'signin'
+            route === 'signin'
               ? <SigninComponent onRouteChange={this.onRouteChange} />
               : <RegisterComponent onRouteChange={this.onRouteChange} />
           )

@@ -9,7 +9,7 @@ const RegisterComponent = ({onRouteChange}) => {
       <legend className="f1 fw6 ph0 mh0">Register</legend>
       <div className="mt3">
         <label className="db fw6 lh-copy f6" htmlFor="full-Name">Full Name</label>
-        <input className="pa2 input-reset ba bg-transparent hover-bg-black hover-white w-100" type="text" name="first-name"  id="first-name" />
+        <input className="pa2 input-reset ba bg-transparent hover-bg-black hover-white w-100" type="text" name="first-name"  id="full-name" />
       </div>
       <div className="mt3">
         <label className="db fw6 lh-copy f6" htmlFor="email-address">Email</label>
