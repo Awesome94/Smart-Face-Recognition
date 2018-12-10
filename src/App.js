@@ -6,6 +6,9 @@ import ImageLinkForm from "./components/imagelinkform/imagelinkformComponent";
 import Rank from "./components/rank/rack";
 import SigninComponent from "./components/signIn/signinComponent";
 import RegisterComponent from "./components/register/regitsterComponent";
+import AttendanceComponent from "./components/attendance/attendance";
+import AbsentComponent from "./components/absent/absent";
+// import RollCallComponent from "./components/rollCall/rollCallComponent";
 
 import './App.css';
 import "./index.css";
@@ -109,9 +112,8 @@ class App extends Component {
         {route === 'home'
           ? <div>
             <Logo />
-            <Rank />
-            <ImageLinkForm onInputChange={this.onInputChange} onButtonSubmit={this.onButtonSubmit} />
-            <FaceRecogonition imageUrl={imageUrl} box={box} />
+            <AbsentComponent/>
+            <AttendanceComponent/>
           </div>
           : (
             route === 'signin'
