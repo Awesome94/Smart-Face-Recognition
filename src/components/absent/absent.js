@@ -17,13 +17,26 @@ const data = [
     name: "Lubowa Barnabas",
     index_no: "u/12/0034",
     class: 's2',
+    date: '10/12/2018',
+    gender: 'M',
     notes: 'Defaulted school fees payement',
+  },
+  {
+  id: 1,
+  name: "Dorcus Nakidde",
+  index_no: "u/12/0068",
+  class: 's4',
+  gender: 'F',
+  date: '10/12/2018',
+  notes: 'Serving punishment.'
   },
   {
       id: 1,
       name: "Mugisa Julius",
       index_no: "u/12/0009",
       class: 's4',
+      gender: 'M',
+      date: '10/12/2018',
       notes: 'Is sick and getting medication from the school Nurse'
   },
 
@@ -32,6 +45,8 @@ const data = [
       name: "Mutisya Anthony",
       index_no: "u/12/0009",
       class: 's1',
+      gender: 'M',
+      date: '10/12/2018',
       notes: 'Dodged class'
   },
   {
@@ -39,6 +54,8 @@ const data = [
       name: "Muwonge Chris",
       index_no: "u/12/0009",
       class: 's2',
+      gender: 'M',
+      date: '10/12/2018',
       notes: 'No reason'
   },
   {
@@ -46,6 +63,8 @@ const data = [
       name: "Mutumba Julius",
       index_no: "u/12/0009",
       class: 's4',
+      gender: 'M',
+      date: '10/12/2018',
       notes: 'On Suspension'
   },
   {
@@ -53,7 +72,9 @@ const data = [
       name: "mukisa George",
       index_no: "u/12/0067",
       class: 's3',
-      notes: 'came late'
+      gender: 'M',
+      notes: 'came late',
+      date: '10/12/2018'
   },
 ];
 
@@ -69,8 +90,13 @@ const editableColumns = [
     title: "Name",
     field: "name",
     width: 130,
-    editor: "input",
     headerFilter: "input"
+  },
+  {
+    title: "Date",
+    field: "date",
+    width: 130,
+    align: "center",
   },
   {
     title: "Index No",
@@ -79,14 +105,20 @@ const editableColumns = [
     align: "left",
   },
   {
+    title: "Gender",
+    field: "gender",
+    width: 100,
+    align: "left",
+  },
+  {
     title: "Class",
     field: "class",
-    editor: "autocomplete",
     width: 100,
     align: "left",
     editorParams: {
       allowEmpty: true,
       showListOnEmpty: true,
+      default: 'S4',
       values: classes
     },
     headerFilter: "select",
@@ -128,7 +160,7 @@ class Home extends React.Component {
     };
     return (
       <div>
-        <h3>Absent Students</h3>
+        <h3>Absent Students: Total={Math.floor(Math.random(1)*8+2)}/15</h3>
         <React15Tabulator columns={editableColumns} data={data} />
       </div>
     );

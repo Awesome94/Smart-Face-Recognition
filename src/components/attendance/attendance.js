@@ -8,6 +8,7 @@ import { React15Tabulator } from "react-tabulator"; // for React 15.x
 const columns = [
   { title: "Name", field: "name", width: 150 },
   { title: "Index No", field: "index_no", align: "left"},
+  {title: "Gender", field: "gender", align: "left"},
   { title: "Class", field: "class", align: "left"},
   { title: "Present?", field: "present", align: "center", formatter: "tickCross" }
 ];
@@ -17,6 +18,8 @@ const data = [
     name: "Oli Bob",
     index_no: "u/12/0065",
     class: 's4',
+    gender: 'M',
+    date: '10/12/2018',
     present: true
   },
   {
@@ -24,6 +27,8 @@ const data = [
       name: "Kityo Julius",
       index_no: "u/12/0066",
       class: 's4',
+      gender: 'M',
+      date: '10/12/2018',
       present: true
   },
 
@@ -32,6 +37,8 @@ const data = [
       name: "mukisa George",
       index_no: "u/12/0067",
       class: 's4',
+      gender: 'M',
+      date: '10/12/2018',
       present: false
   },
 
@@ -40,6 +47,8 @@ id: 1,
 name: "Dorcus Nakidde",
 index_no: "u/12/0068",
 class: 's4',
+gender: 'F',
+date: '10/12/2018',
 present: false
 },
 {
@@ -47,6 +56,8 @@ present: false
   name: "Lubowa Barnabas",
   index_no: "u/12/0034",
   class: 's2',
+  gender: 'M',
+  date: '10/12/2018',
   present: false
 },
 {
@@ -54,6 +65,8 @@ present: false
   name: "Mutisya Anthony",
   index_no: "u/12/0034",
   class: 's1',
+  gender: 'M',
+  date: '10/12/2018',
   present: false
 },
 {
@@ -61,6 +74,8 @@ present: false
   name: "Muwonge Chris",
   index_no: "u/12/0009",
   class: 's2',
+  gender: 'M',
+  date: '10/12/2018',
   present: false
 },
 {
@@ -68,6 +83,8 @@ present: false
     name: "mukisa George",
     index_no: "u/12/0067",
     class: 's3',
+    gender: 'M',
+    date: '10/12/2018',
     present: false
 },
 {
@@ -75,6 +92,8 @@ present: false
   name: "Mary Jane",
   index_no: "u/12/0069",
   class: 's4',
+  gender: 'F',
+  date: '10/12/2018',
   present: true
 },
 
@@ -83,6 +102,8 @@ present: false
     name: "Dan Kizito",
     index_no: "u/12/0070",
     class: 's4',
+    gender: 'M',
+    date: '10/12/2018',
     present: true
 },
 
@@ -91,6 +112,8 @@ present: false
       name: "James Mugume",
       index_no: "u/12/0071",
       class: 's4',
+      gender: 'M',
+      date: '10/12/2018',
       present: true
   }
 ];
@@ -107,8 +130,13 @@ const editableColumns = [
     title: "Name",
     field: "name",
     width: 130,
-    editor: "input",
     headerFilter: "input"
+  },
+  {
+    title: "Date",
+    field: "date",
+    width: 130,
+    align: "center",
   },
   {
     title: "Index No",
@@ -117,9 +145,14 @@ const editableColumns = [
     align: "left",
   },
   {
+    title: "Gender",
+    field: "gender",
+    width: 100,
+    align: "left",
+  },
+  {
     title: "Class",
     field: "class",
-    editor: "autocomplete",
     width: 100,
     align: "left",
     editorParams: {

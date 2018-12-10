@@ -5,9 +5,9 @@ import './logo.css'
 
 const Logo = () => {
   return (
-    <div className='ma4 mto' options={{ max : 55 }} style={{ height: 200, width: 200 }} >
+    <div className='ma4 mto' options={{ max : 55 }} style={{ height: 200, width: 200}}>
     <div className="Tilt-inner">
-    <img style={{paddingTop: '70px', width:' 50%'}}alt='logo' src={sydney}/>
+    <img style={{paddingTop: '70px', width:' 50%', align: 'center'}}alt='logo' src={sydney}/>
     </div>
     </div>
   )
